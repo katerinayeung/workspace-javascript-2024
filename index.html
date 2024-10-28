@@ -50,7 +50,7 @@
 
                 var a = "5.6";
                 var b= 5.6;
-                console.log(typeof a)
+                console.log(typeof a);
                 
                 const message= "great";
                 let greeting = "HI";
@@ -76,7 +76,8 @@
                 </script>
             <p> Write a table to the page </p>
                 <script>
-                    document.write("<table border\"1\">");
+                    //document.write("<table border\"1\">");
+                    //docume.write("<table>");
                 </script>
         </div>
 
@@ -84,9 +85,11 @@
             <h1>Window and Document Object </h1>
             <p> Try alert, open, location, url </p>
             <script>
-                window.alert("pop up alert windows");
-                alert("another alert");
-                window.location.assign("http://www.google.com");
+
+                
+               // window.alert("pop up alert windows");
+                //alert("another alert");
+                //window.location.assign("http://www.google.com");
                 //console.log(document.location);
 
             </script>
@@ -107,10 +110,27 @@
             <p id="p1"> Paragraph Number One </p>
             <p id="p2"> Paragraph Number two </p>
             <p id="p3"> Paragraph Number three </p>
-            <p>Please write JavaScript code to change the content of each paragraph.​
-            <p>
+            <p>Please write JavaScript code to change the content of each paragraph.</p>
 
+            <script>
+                //change the first paragraph
+                const pOne= document.getElementById("p1");
+                pOne.textContent = "I changed";
 
+                //other elements
+                const pTwo = document.getElementsByName;
+                console.log(pTwo);
+
+                const pThree = document.getElementById("p3");
+                pThree.innerHTML = "<b> Bold Elements </b>";
+
+                
+
+                
+
+                
+
+            </script>
         </div>
 
         <div class="practice">
@@ -118,6 +138,19 @@
             <p> Please enter your numbers </p>
             <script>
                 function calculate() {
+                    //get the value from the form and add them up
+                    const input1 = document.getElementsByName('num1')[0];
+                    console.log("get the first input " + input1.value);
+
+                    const input2 = document.getElementsByName('num2')[0];
+                    console.log("get the second input " + input2.value);
+
+                    var a = parseFloat(input1.value);
+                    var b = parseFloat(input2.value); //finish this
+                    var c = a + b;
+
+                    const result = document.getElementById("result");
+                    result.textContent = " " + c;
 
 
                 }
@@ -148,6 +181,17 @@
                     </label>
                 </p>
             </form>
+            <script>
+                //Event handler
+                function welcome(){
+                    alert("Thank!");
+
+                }
+
+                //Binding--- register the event
+                const nameE = document.getElementById('cName');
+                nameE.addEventListener('blur',welcome);
+            </script>
 
         </div>
 
