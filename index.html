@@ -269,6 +269,50 @@
             </p>
 
             <script type="text/javascript">
+                //get element
+                var year = document.getElementById('year');
+                var condition = document.getElementById('condition');
+
+                //add events
+                year.addEventListener('change', getprice, false);
+                condition.addEventListener('change', getprice, false);
+
+                //Event handlers
+                function getprice() {
+                    var year = document.getElementById('year');
+                    var condition = document.getElementById('condition')
+                    console.log(year.value);
+                    console.log(year.selectedIndex);
+                    
+                    if (year.value == "2003" && condition.value == "Fair"){
+                        price = 2000;
+                
+                    }else if (year.value == "2003" && condition.value == "Good"){
+                        price = 3000;
+                    }else if (year.value == "2004" && condition.value == "Fair"){
+                        price = 3500;
+
+                    }else if(year.value == "2004" && condition.value == "Good"){
+                        price = 4000;
+                    }
+                    
+                    
+                    
+                    /*the other way
+                    if (year.selectedIndex == 0){
+                        if (condition.selectedIndex == 0){
+                            price = 2000;
+                        }
+                        else{
+                            price = 3000;
+                        }
+                    }
+                    */
+
+                    //finish the if statement
+                    document.getElementById("price").innerHTML=("The price is <b>" + price +"</b>");
+                }
+                
 
 
 
@@ -281,6 +325,30 @@
             <p> Choose your favorite theme(warm, cool, hot)
                 <input type="text" id="theme">
             </p>
+
+            <script>
+                //get element
+                var theme = document.getElementById('theme');
+                //event listener
+                theme.addEventListener('blur',gettheme, false);
+                //action
+                function gettheme(){
+                    var themevalue = document.getElementById('theme').value;
+                    switch (themevalue){
+                        case "warm":
+                            document.body.style.backgroundColor = "yellow";
+                            break;
+                        case "hot":
+                            document.body.style.backgroundColor = "red";
+                            break;
+                        case "cool":
+                            document.body.style.backgroundColor = "blue";
+                        default:
+                            alert("Please enter a valid theme");
+                    }
+                }
+
+            </script>
 
         </div>
 
@@ -311,6 +379,35 @@
 
             </p>
 
+            <p>
+                <script>
+                    function getpremium(){
+                        var base= 10;
+                        var coverage = document.querySelector('input[name ="coverage"]:checked').value;
+                        var ageindex = document.querySelector('#agegroup').selectedIndex;
+                        console.log('The coverage is'+ coverage + "age" +ageindex);
+
+                        //get the age factor using switch
+                        var agefactor = 0
+                        switch(agefactor){
+                            case 0: agefactor = 0.08; break;
+                            case 1: agefactor = 0.09; break;
+                            //complete it
+                            default: break;
+                        }
+                        //calculation
+                        var premium = base + parseFloat(coverage)/1000*agefactor;
+
+                        //display in paragraph # result --using querySelector
+
+                        document.querySelector("result");
+                    }
+                    //get the element
+                    var bE = document.querySelector('input[value="Check Premium"]');
+                    bE.addEventListener('click',getpremium,false);
+                </script>
+            </p>
+
         </div>
 
 
@@ -323,6 +420,18 @@
             <p>
                 <input type="button" value="Click for Square">
             </p>
+
+            <script>
+                var outlist = '<ul>';
+                for(let i = 0; i < 6; i++){
+                    var square = i *i;
+                    outlist += "<li>" + i + "^2 = " +square+ "</li>";
+                    //alert (square);
+                }
+                outlist+= '</ul>'
+
+                document.getElementById('squarelist').innerHTML = outlist;
+            </script>
 
         </div>
 
@@ -360,7 +469,16 @@
             <p> A simple JavaScript Quiz </p>
             <p>Target: Generate a simple substract and add problems using JavaScript and then check the answers</p>
             <a href="quiz1.html">Do your practice in quiz1.html</a>
+
+            <script>
+                //try Math.random
+                for (let i = 0; i<4; i++){
+                    var num = Math.floor(Math.random()*6)+1;
+                    alert(num);
+                }
+            </script>
         </div>
+
 
         <div class="practice">
             <h1>Change Attribute -- Rolling a dice </h1>
