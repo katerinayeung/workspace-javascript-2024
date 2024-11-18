@@ -9,6 +9,14 @@ $('a').hide();
 $('h1').click(hidesection);
 function hidesection(){
     $(this).text("Hiding.....");
-    $('body').childern('p').slideToggle();
+    $('body').children('p').slideToggle();
+}
+
+//test the each
+$('a').each(change);
+function change(){
+    var links = $(this).attr('href');
+    console.log(links);
+    $(this).attr('href', "https://www.google.com");
 }
 
